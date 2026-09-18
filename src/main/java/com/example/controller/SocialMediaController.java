@@ -30,7 +30,7 @@ public class SocialMediaController {
   @PostMapping("/register")
   public ResponseEntity<Account> registrationHandler(@RequestBody Account account) {
 
-    return ResponseEntity.status(500).body(null);
+    return null;
   }
 
 
