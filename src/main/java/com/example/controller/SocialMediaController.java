@@ -54,11 +54,9 @@ public class SocialMediaController {
     Account verifiedAccount = accountService.verifyLogin(account);
     
     if(verifiedAccount != null) {
-      
+      return ResponseEntity.status(200).body(verifiedAccount);
     }
-    
-
-    return ResponseEntity.status(200).body(null);
+    return ResponseEntity.status(401).build();
   }
 
   @PostMapping("/messages")
