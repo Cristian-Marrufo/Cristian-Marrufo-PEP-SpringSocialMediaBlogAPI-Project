@@ -43,7 +43,7 @@ public class SocialMediaController {
       return ResponseEntity.status(200).body(registeredAccount);
     }
 
-    return ResponseEntity.status(400).body(null);
+    return ResponseEntity.status(200).build();
   }
 
   @PostMapping("/login")
