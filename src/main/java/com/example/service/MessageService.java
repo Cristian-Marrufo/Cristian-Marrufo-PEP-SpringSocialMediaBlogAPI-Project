@@ -8,7 +8,6 @@ import java.util.*;
 
 @Service
 public class MessageService {
-
   private MessageRepository messageRepository;
 
   @Autowired

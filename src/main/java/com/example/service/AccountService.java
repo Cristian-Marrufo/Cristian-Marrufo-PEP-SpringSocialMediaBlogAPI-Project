@@ -8,7 +8,6 @@ import java.util.*;
 
 @Service
 public class AccountService {
-
   private AccountRepository accountRepository;
 
   @Autowired
