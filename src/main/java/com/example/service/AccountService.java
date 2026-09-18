@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.repository.AccountRepository;
 import com.example.entity.Account;
-import java.util.*;
 
 @Service
 public class AccountService {
@@ -16,5 +15,13 @@ public class AccountService {
     this.accountRepository = accountRepository;
   }
 
+  public Account registerAccount(Account newAccount) {
 
+    return null;
+  }
+
+  public Account verifyLogin(Account userAccount) {
+
+    return null;
+  }
 }

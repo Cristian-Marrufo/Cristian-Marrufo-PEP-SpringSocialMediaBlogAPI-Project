@@ -15,6 +15,34 @@ public class MessageService {
   public MessageService(MessageRepository messageRepository) {
     this.messageRepository = messageRepository;
   }
-  
 
+  public Message createMsg(Message newMessage) {
+
+    return null;
+  }
+
+  public List<Message> getAllMsgs() {
+
+    return null;
+  }
+
+  public Message getMsgById(Integer messageId) {
+
+    return null;
+  }
+
+  public Message deleteMsgById(Integer messageId) {
+
+    return null;
+  }
+
+  public Message updateMsg(Integer messageId, Message updatedTextMessage) {
+
+    return null;
+  }
+
+  public List<Message> getAllMsgsByActId(Integer accountId) {
+
+    return null;
+  }
 }
