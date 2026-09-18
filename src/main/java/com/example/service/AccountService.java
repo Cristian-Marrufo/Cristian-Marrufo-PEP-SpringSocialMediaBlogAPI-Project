@@ -28,7 +28,19 @@ public class AccountService {
   }
 
   public Account verifyLogin(Account userAccount) {
+    String username = userAccount.getUsername();
+    String password = userAccount.getPassword();
+    Optional<Account> optionalAccount = accountRepository.findById(userAccount.getAccountId());
 
+    if(optionalAccount.isPresent()) {
+      Account retrievedAccount = optionalAccount.get();
+      String retrievedUsername = retrievedAccount.getUsername();
+      String retrievedPassword = retrievedAccount.getPassword();
+
+      if((retrievedUsername.equals(username)) && (retrievedPassword.equals(password))) {
+        return retrievedAccount;
+      }
+    }
     return null;
   }
 
