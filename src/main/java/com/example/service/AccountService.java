@@ -22,8 +22,7 @@ public class AccountService {
 
     if((username != "") && (passLength >= 4)) {
       accountRepository.save(newAccount);
-      Account registeredAccount = verifyAccountExists(newAccount);
-      return registeredAccount;
+      return verifyAccountExists(newAccount);
     }
     return null;
   }

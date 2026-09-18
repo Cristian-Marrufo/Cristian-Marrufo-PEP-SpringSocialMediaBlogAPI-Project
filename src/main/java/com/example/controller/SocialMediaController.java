@@ -51,6 +51,12 @@ public class SocialMediaController {
 
   @PostMapping("/login")
   public ResponseEntity<Account> loginHandler(@RequestBody Account account) {
+    Account verifiedAccount = accountService.verifyLogin(account);
+    
+    if(verifiedAccount != null) {
+      
+    }
+    
 
     return ResponseEntity.status(200).body(null);
   }
