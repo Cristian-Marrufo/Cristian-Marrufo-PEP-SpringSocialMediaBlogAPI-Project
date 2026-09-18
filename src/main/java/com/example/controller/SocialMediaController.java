@@ -36,49 +36,49 @@ public class SocialMediaController {
   @PostMapping("/register")
   public ResponseEntity<Account> registrationHandler(@RequestBody Account account) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @PostMapping("/login")
   public ResponseEntity<Account> loginHandler(@RequestBody Account account) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @PostMapping("/messages")
   public ResponseEntity<Message> msgCreationHandler(@RequestBody Message message) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @GetMapping("/messages")
   public ResponseEntity<List<Message>> allMsgsHandler() {
     
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @GetMapping("messages/{messageId}")
   public ResponseEntity<Message> msgByIdHandler(@PathVariable Integer messageId) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @DeleteMapping("/messages/{messageId}")
   public ResponseEntity<Message> deleteMsgByIdHandler(@PathVariable Integer messageId) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @PatchMapping("/messages/{messageId}")
   public ResponseEntity<Message> updateMsgHandler(@PathVariable Integer messageId, @RequestBody Message message) {
 
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
   @GetMapping("/accounts/{accountId/messages}")
   public ResponseEntity<List<Message>> allMsgsByActIdHandler(@PathVariable Integer accountId) {
     
-    return null;
+    return ResponseEntity.status(200).body(null);
   }
 
 }
