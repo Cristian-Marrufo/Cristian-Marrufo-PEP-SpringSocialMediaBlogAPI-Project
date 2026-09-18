@@ -35,15 +35,18 @@ public class SocialMediaController {
 
   @PostMapping("/register")
   public ResponseEntity<Account> registrationHandler(@RequestBody Account account) {
+    Account duplicateAccount = accountService.verifyAccountExists(account);
 
-    Account registeredAccount = accountService.registerAccount(account);
+    if(duplicateAccount == null) {
+      Account registeredAccount = accountService.registerAccount(account);
 
-    if(registeredAccount != null) {
-
-      return ResponseEntity.status(200).body(registeredAccount);
+      if(registeredAccount != null) {
+        return ResponseEntity.status(200).body(registeredAccount);
+      } else {
+        return ResponseEntity.status(400).build();
+      }
     }
-
-    return ResponseEntity.status(200).build();
+    return ResponseEntity.status(409).build();
   }
 
   @PostMapping("/login")

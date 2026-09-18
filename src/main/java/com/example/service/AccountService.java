@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.repository.AccountRepository;
 import com.example.entity.Account;
+import java.util.*;
 
 @Service
 public class AccountService {
@@ -16,12 +17,29 @@ public class AccountService {
   }
 
   public Account registerAccount(Account newAccount) {
+    String username = newAccount.getUsername();
+    int passLength = (newAccount.getPassword()).length();
 
+    if((username != "") && (passLength >= 4)) {
+      accountRepository.save(newAccount);
+      Account registeredAccount = verifyAccountExists(newAccount);
+      return registeredAccount;
+    }
     return null;
   }
 
   public Account verifyLogin(Account userAccount) {
 
+    return null;
+  }
+
+  public Account verifyAccountExists(Account account) {
+    Optional<Account> optionalAccount = accountRepository.findByUsername(account.getUsername());
+
+    if(optionalAccount.isPresent()) {
+      Account verifiedAccount = optionalAccount.get();
+      return verifiedAccount;
+    }
     return null;
   }
 }
