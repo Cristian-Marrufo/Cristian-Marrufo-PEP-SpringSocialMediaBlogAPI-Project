@@ -30,7 +30,7 @@ public class AccountService {
   public Account verifyLogin(Account userAccount) {
     String username = userAccount.getUsername();
     String password = userAccount.getPassword();
-    Optional<Account> optionalAccount = accountRepository.findById(userAccount.getAccountId());
+    Optional<Account> optionalAccount = accountRepository.findByUsername(userAccount.getUsername());
 
     if(optionalAccount.isPresent()) {
       Account retrievedAccount = optionalAccount.get();
