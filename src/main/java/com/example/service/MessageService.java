@@ -60,7 +60,6 @@ public class MessageService {
   }
 
   public List<Message> getAllMsgsByActId(Integer accountId) {
-
-    return null;
+    return messageRepository.findAllByPostedBy(accountId);
   }
 }
