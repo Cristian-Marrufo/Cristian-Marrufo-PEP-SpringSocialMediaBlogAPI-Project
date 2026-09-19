@@ -30,7 +30,12 @@ public class MessageService {
   }
 
   public Message getMsgById(Integer messageId) {
+    Optional<Message> optionalMessage = messageRepository.findById(messageId);
 
+    if(optionalMessage.isPresent()) {
+      Message retrievedMessage = optionalMessage.get();
+      return retrievedMessage;
+    }
     return null;
   }
 

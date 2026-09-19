@@ -77,17 +77,22 @@ public class SocialMediaController {
     return ResponseEntity.status(200).body(allMessages);
   }
 
-
-
-
-
-
-
   @GetMapping("messages/{messageId}")
   public ResponseEntity<Message> msgByIdHandler(@PathVariable Integer messageId) {
+    Message retrievedMessage = messageService.getMsgById(messageId);
 
-    return ResponseEntity.status(200).body(null);
+    if(retrievedMessage != null) {
+      return ResponseEntity.status(200).body(retrievedMessage);
+    }
+    return ResponseEntity.status(200).build();
   }
+
+
+
+
+
+
+
 
   @DeleteMapping("/messages/{messageId}")
   public ResponseEntity<Message> deleteMsgByIdHandler(@PathVariable Integer messageId) {
