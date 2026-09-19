@@ -33,7 +33,7 @@ public class SocialMediaController {
 
   @PostMapping("/register")
   public ResponseEntity<Account> registrationHandler(@RequestBody Account account) {
-    Account duplicateAccount = accountService.verifyAccountExists(account);
+    Account duplicateAccount = accountService.verifyAccountUserExists(account);
 
     if(duplicateAccount == null) {
       Account registeredAccount = accountService.registerAccount(account);
