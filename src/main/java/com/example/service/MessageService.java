@@ -40,7 +40,12 @@ public class MessageService {
   }
 
   public Message deleteMsgById(Integer messageId) {
+    Message verifiedMessage = getMsgById(messageId);
 
+    if(verifiedMessage != null) {
+      messageRepository.deleteById(messageId);
+      return verifiedMessage;
+    }
     return null;
   }
 
