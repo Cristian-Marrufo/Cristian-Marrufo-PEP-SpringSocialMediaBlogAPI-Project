@@ -20,8 +20,7 @@ public class AccountService {
     int passLength = (newAccount.getPassword()).length();
 
     if((username != "") && (passLength >= 4)) {
-      accountRepository.save(newAccount);
-      return verifyAccountUserExists(newAccount);
+      return accountRepository.save(newAccount);
     }
     return null;
   }
@@ -44,6 +43,16 @@ public class AccountService {
 
   public Account verifyAccountUserExists(Account account) {
     Optional<Account> optionalAccount = accountRepository.findByUsername(account.getUsername());
+
+    if(optionalAccount.isPresent()) {
+      Account verifiedAccount = optionalAccount.get();
+      return verifiedAccount;
+    }
+    return null;
+  }
+
+  public Account verifyAccountIdExists(Integer accountId) {
+    Optional<Account> optionalAccount = accountRepository.findById(accountId);
 
     if(optionalAccount.isPresent()) {
       Account verifiedAccount = optionalAccount.get();

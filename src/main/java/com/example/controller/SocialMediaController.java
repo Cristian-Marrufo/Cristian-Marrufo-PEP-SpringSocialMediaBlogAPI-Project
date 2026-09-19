@@ -57,15 +57,24 @@ public class SocialMediaController {
     return ResponseEntity.status(401).build();
   }
 
+  @PostMapping("/messages")
+  public ResponseEntity<Message> msgCreationHandler(@RequestBody Message message) {
+    Account existingAccount = accountService.verifyAccountIdExists(message.getPostedBy());
+
+    if(existingAccount != null) {
+      Message createdMessage = messageService.createMsg(message);
+
+      if(createdMessage != null) {
+        return ResponseEntity.status(200).body(createdMessage);
+      }
+    }
+    return ResponseEntity.status(400).build();
+  }
+
 
 
 
   
-  @PostMapping("/messages")
-  public ResponseEntity<Message> msgCreationHandler(@RequestBody Message message) {
-
-    return ResponseEntity.status(200).body(null);
-  }
 
   @GetMapping("/messages")
   public ResponseEntity<List<Message>> allMsgsHandler() {

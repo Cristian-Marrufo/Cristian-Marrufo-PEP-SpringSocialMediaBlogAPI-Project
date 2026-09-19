@@ -16,7 +16,12 @@ public class MessageService {
   }
 
   public Message createMsg(Message newMessage) {
+    String messageText = newMessage.getMessageText();
+    int messageLength = messageText.length();
 
+    if((messageText != "") && (messageLength <= 255)) {
+      return messageRepository.save(newMessage);
+    }
     return null;
   }
 
