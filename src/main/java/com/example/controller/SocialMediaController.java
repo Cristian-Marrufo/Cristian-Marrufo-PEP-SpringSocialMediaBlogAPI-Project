@@ -88,11 +88,11 @@ public class SocialMediaController {
   }
 
   @DeleteMapping("/messages/{messageId}")
-  public ResponseEntity<Message> deleteMsgByIdHandler(@PathVariable Integer messageId) {
+  public ResponseEntity<Integer> deleteMsgByIdHandler(@PathVariable Integer messageId) {
     Message retrievedMessage = messageService.deleteMsgById(messageId);
     
     if(retrievedMessage != null) {
-      return ResponseEntity.status(200).body(retrievedMessage);
+      return ResponseEntity.status(200).body(1);
     }
     return ResponseEntity.status(200).build();
   }
