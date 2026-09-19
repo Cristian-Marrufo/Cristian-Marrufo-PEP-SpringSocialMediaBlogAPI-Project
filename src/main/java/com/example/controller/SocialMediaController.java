@@ -71,16 +71,17 @@ public class SocialMediaController {
     return ResponseEntity.status(400).build();
   }
 
-
-
-
-  
-
   @GetMapping("/messages")
   public ResponseEntity<List<Message>> allMsgsHandler() {
-    
-    return ResponseEntity.status(200).body(null);
+    List<Message> allMessages = messageService.getAllMsgs();
+    return ResponseEntity.status(200).body(allMessages);
   }
+
+
+
+
+
+
 
   @GetMapping("messages/{messageId}")
   public ResponseEntity<Message> msgByIdHandler(@PathVariable Integer messageId) {

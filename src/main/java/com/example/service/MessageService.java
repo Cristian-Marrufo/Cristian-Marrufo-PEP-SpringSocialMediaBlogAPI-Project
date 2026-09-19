@@ -26,8 +26,7 @@ public class MessageService {
   }
 
   public List<Message> getAllMsgs() {
-
-    return null;
+    return messageRepository.findAll();
   }
 
   public Message getMsgById(Integer messageId) {
