@@ -26,15 +26,13 @@ public class AccountService {
   }
 
   public Account verifyLogin(Account userAccount) {
-    String username = userAccount.getUsername();
-    String password = userAccount.getPassword();
     Account retrievedAccount = verifyAccountUserExists(userAccount);
 
     if(retrievedAccount != null) {
-      String retrievedUsername = retrievedAccount.getUsername();
+      String password = userAccount.getPassword();
       String retrievedPassword = retrievedAccount.getPassword();
 
-      if((retrievedUsername.equals(username)) && (retrievedPassword.equals(password))) {
+      if(retrievedPassword.equals(password)) {
         return retrievedAccount;
       }
     }
