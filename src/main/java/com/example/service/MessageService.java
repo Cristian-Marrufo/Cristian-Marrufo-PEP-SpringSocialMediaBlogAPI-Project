@@ -50,7 +50,12 @@ public class MessageService {
   }
 
   public Message updateMsg(Integer messageId, Message updatedTextMessage) {
+    Message verifiedMessage = getMsgById(messageId);
 
+    if(verifiedMessage != null) {
+      verifiedMessage.setMessageText(updatedTextMessage.getMessageText());
+      return createMsg(verifiedMessage);
+    }
     return null;
   }
 

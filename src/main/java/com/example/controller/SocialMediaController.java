@@ -97,16 +97,14 @@ public class SocialMediaController {
     return ResponseEntity.status(200).build();
   }
 
-
-
-
-
-
-
   @PatchMapping("/messages/{messageId}")
-  public ResponseEntity<Message> updateMsgHandler(@PathVariable Integer messageId, @RequestBody Message message) {
+  public ResponseEntity<Integer> updateMsgHandler(@PathVariable Integer messageId, @RequestBody Message message) {
+    Message retrievedMessage = messageService.updateMsg(messageId, message);
 
-    return ResponseEntity.status(200).body(null);
+    if(retrievedMessage != null) {
+      return ResponseEntity.status(200).body(1);
+    }
+    return ResponseEntity.status(400).build();
   }
 
   @GetMapping("/accounts/{accountId/messages}")
